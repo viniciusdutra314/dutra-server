@@ -243,8 +243,8 @@ services:
         target: /tv
         bind:
           create_host_path: false
-        source: ${LIBRARY_PATH}/movies
       - type: bind
+        source: ${LIBRARY_PATH}/movies
         target: /movies
         bind:
           create_host_path: false
