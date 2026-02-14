@@ -11,16 +11,16 @@ services:
     volumes:
       - type: bind
         target: /config
-        source: ${APPDATA_PATH}/unmanic/config
+        source: ${OLD_HDD}/unmanic/config
         bind:
           create_host_path: false
       - type: bind
-        source: ${LIBRARY_PATH}
+        source: ${OLD_HDD}/jellyfin
         target: /library
         bind:
           create_host_path: false
       - type: bind
-        source: ${UNMANIC_PATH}
+        source: ${OLD_HDD}/unmanic/tmp
         target: /unmanic_tmp
         bind:
           create_host_path: false
@@ -114,7 +114,7 @@ services:
       - DOCKER_MODS=linuxserver/mods:jellyfin-opencl-intel
     volumes:
       - type: bind
-        source: ${LIBRARY_PATH}
+        source: ${OLD_HDD}/jellyfin
         target: /data
         bind:
           create_host_path: false
@@ -160,12 +160,12 @@ services:
         bind:
           create_host_path: false
       - type: bind
-        source: ${LIBRARY_PATH}/tv
+        source: ${OLD_HDD}/jellyfin/tv
         target: /tv
         bind:
           create_host_path: false
       - type: bind
-        source: ${DOWNLOAD_PATH}/tv
+        source: ${OLD_HDD}/qbittorrent/tv
         target: /data/tv
         bind:
           create_host_path: false
@@ -189,12 +189,12 @@ services:
         bind:
           create_host_path: false
       - type: bind
-        source: ${LIBRARY_PATH}/movies
+        source: ${OLD_HDD}/jellyfin/movies
         target: /movies
         bind:
           create_host_path: false
       - type: bind
-        source: ${DOWNLOAD_PATH}/movies
+        source: ${OLD}/qbittorrent/movies
         target: /data/movies
         bind:
           create_host_path: false
@@ -239,12 +239,12 @@ services:
         bind:
           create_host_path: false
       - type: bind
-        source: ${LIBRARY_PATH}/tv
+        source: ${OLD_HDD}/jellyfin/tv
         target: /tv
         bind:
           create_host_path: false
       - type: bind
-        source: ${LIBRARY_PATH}/movies
+        source: ${OLD_HDD}/jellyfin/movies
         target: /movies
         bind:
           create_host_path: false
