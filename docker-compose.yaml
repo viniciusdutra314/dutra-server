@@ -1,4 +1,0 @@
-include:
-  - ./dutraetc/docker-compose.yaml
-  - ./dutraflix/docker-compose.yaml
-  - ./dutraphotos/docker-compose.yaml

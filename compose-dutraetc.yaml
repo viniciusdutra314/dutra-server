@@ -8,8 +8,8 @@ services:
       - PGID=${PGID}
       - TZ={TZ}
     volumes:
-      - ./syncthing/config:/config
-      - ./syncthing/data:/data
+      - ${DUTRAETC_FOLDER}/syncthing/config:/config
+      - ${DUTRAETC_FOLDER}/syncthing/data:/data
     ports:
       - 8384:8384
       - 22000:22000/tcp
@@ -23,6 +23,6 @@ services:
     ports:
       - "8080:8080"
     volumes:
-      - ./wsgidav:/var/wsgidav-root
-      - ./wsgidav.yaml:/wsgidav.yaml
+      - ${DUTRAETC_FOLDER}/wsgidav:/var/wsgidav-root
+      - ${DUTRAETC_FOLDER}/wsgidav.yaml:/wsgidav.yaml
     command: wsgidav --config=/wsgidav.yaml

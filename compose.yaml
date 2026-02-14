@@ -1,0 +1,14 @@
+include:
+  - ./dutraetc/docker-compose.yaml
+  - ./dutraflix/docker-compose.yaml
+  - ./dutraphotos/docker-compose.yaml
+
+services:
+  sync-daemon:
+    image: alpine
+    volumes:
+      - ${APPDATA_SSD}:/appdata_ssd
+      - ${APPDATA_DUTRAFLIX}:/appdata_dutraflix
+      - ./sync_handler.sh:/sync_handler.sh
+    entrypoint: ["/bin/sh", "/sync_handler.sh"]
+    stop_grace_period: 2m
