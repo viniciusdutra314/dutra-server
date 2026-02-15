@@ -93,7 +93,7 @@ services:
         bind:
           create_host_path: false
       - type: bind
-        source: ${DOWNLOAD_PATH}
+        source: ${OLD_HDD}/qbittorrent/files
         target: /data
         bind:
           create_host_path: false
@@ -111,7 +111,6 @@ services:
       - TZ=${TZ}
       - PUID=${PUID}
       - PGID=${PGID}
-      - DOCKER_MODS=linuxserver/mods:jellyfin-opencl-intel
     volumes:
       - type: bind
         source: ${OLD_HDD}/jellyfin
@@ -128,22 +127,6 @@ services:
       - 8920:8920
       - 7359:7359/udp
       - 1900:1900/udp
-    devices:
-      - /dev/dri:/dev/dri
-
-  caddy:
-    image: caddy:latest
-    container_name: caddy
-    restart: unless-stopped
-    ports:
-      - "80:80"
-    volumes:
-      - ${APPDATA_PATH}/caddy/Caddyfile:/etc/caddy/Caddyfile
-      - ${APPDATA_PATH}/caddy/caddy_data:/data
-      - ${APPDATA_PATH}/caddy/caddy_config:/config
-    depends_on:
-      - jellyfin
-
   sonarr:
     image: lscr.io/linuxserver/sonarr:latest
     container_name: sonarr
@@ -194,7 +177,7 @@ services:
         bind:
           create_host_path: false
       - type: bind
-        source: ${OLD}/qbittorrent/movies
+        source: ${OLD_HDD}/qbittorrent/movies
         target: /data/movies
         bind:
           create_host_path: false
